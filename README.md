@@ -1,5 +1,6 @@
 # image-size-loader
-Webpack image loader with some extra informations on the image. 
+
+A webpack image loader with extra size info for image.
 
 ## Usage
 
@@ -7,14 +8,42 @@ Webpack image loader with some extra informations on the image.
 
 ``` javascript
 
-npm install image-dimension-loader --save
+npm install imagesize-loader --save
 
-var dimensions = require("image-dimension-loader!./file.png");
-// => emits file.png as file in the output directory and returns the public url
-// => returns an object with extra attributes
+var image = require("imagesize!./file.png");
+// => emits file.png to the output directory
+// => returns an object { width: 400, height: 300, type: "png", src: "file.png" }
 ```
 
-## Template placeholders
+## Options
+
+### `config.output.imageFilename`
+
+```js
+// webpack.config.js
+module.exports = {
+    output: {
+        imageFilename: '[name]-[hash].[ext]'
+    }
+}
+```
+
+### `config.output.publicPath`
+
+The path/URL that gets prepended to the output filename -
+https://github.com/webpack/docs/wiki/configuration#outputpublicpath
+
+### query params
+
+#### name
+
+```js
+var image = require('imagesize!./file.png?name=[hash].[ext]');
+```
+
+**Note**: This overrides the config `output.imageFilename`.
+
+### Filename placeholders
 
 * `[ext]` the extension of the resource
 * `[name]` the basename of the resource
@@ -25,6 +54,8 @@ var dimensions = require("image-dimension-loader!./file.png");
   * other `digestType`s, i. e. `hex`, `base26`, `base32`, `base36`, `base49`, `base52`, `base58`, `base62`, `base64`
   * and `length` the length in chars
 * `[N]` the N-th match obtained from matching the current file name against the query param `regExp`
+
+Source: https://github.com/webpack/loader-utils#interpolatename
 
 ## Examples
 
@@ -40,7 +71,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.(gif|jpeg|png)/,
-                loader: 'image-dimension-loader'
+                loader: 'imagesize'
             }
         ]
     }
