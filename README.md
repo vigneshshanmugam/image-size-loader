@@ -6,9 +6,12 @@ Webpack image loader with some extra informations on the image.
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
 
 ``` javascript
-var dimensions = require("image-size!./file.png");
+
+npm install image-dimension-loader --save
+
+var dimensions = require("image-dimension-loader!./file.png");
 // => emits file.png as file in the output directory and returns the public url
-// => returns i. e. "/public-path/file.png"
+// => returns an object with extra attributes
 ```
 
 ## Template placeholders
