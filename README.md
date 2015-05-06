@@ -7,12 +7,12 @@ A webpack image loader with extra size info for image.
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
 
 ``` javascript
-
 npm install imagesize-loader --save
 
 var image = require("imagesize!./file.png");
 // => emits file.png to the output directory
-// => returns an object { width: 400, height: 300, type: "png", src: "file.png" }
+// => returns an object
+// => { width: 150, height: 50, type: "png", src: "file.png", bytes: 1234 }
 ```
 
 ## Options
@@ -83,6 +83,5 @@ module.exports = {
 
 ``` javascript
 var result = require("./image.png");
-// {width: 500, height: 700, type: "png", src: "public/image.png", geometry: "500x700"}
-
+// => {width: 500, height: 700, type: "png", src: "public/image.png", bytes: 1234}
 ```

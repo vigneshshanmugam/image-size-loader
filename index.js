@@ -1,5 +1,6 @@
 var loaderUtils = require('loader-utils');
-var getDimensions = require('image-size');
+var sizeOf = require('image-size');
+var fs = require('fs');
 
 module.exports = function(content) {
 	this.cacheable && this.cacheable(true);
@@ -24,14 +25,16 @@ module.exports = function(content) {
 		regExp: query.regExp
 	});
 
-	var dimensions = getDimensions(this.resourcePath);
+	var image = sizeOf(this.resourcePath);
 
-	dimensions.src = this.options.output.publicPath
+	image.src = this.options.output.publicPath
 		? this.options.output.publicPath + url
 		: url;
 
+	image.bytes = fs.statSync(this.resourcePath).size;
+
 	this.emitFile(url, content);
-	return 'module.exports = ' + JSON.stringify(dimensions);
+	return 'module.exports = ' + JSON.stringify(image);
 };
 
 module.exports.raw = true;
