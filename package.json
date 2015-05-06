@@ -1,6 +1,6 @@
 {
   "name": "imagesize-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An image loader with extra size info",
   "main": "index.js",
   "repository": {
