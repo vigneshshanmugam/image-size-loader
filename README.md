@@ -52,6 +52,6 @@ module.exports = {
 
 ``` javascript
 var result = require("./image.png");
-// {width: 500, height: 700, type: "png", url: "public/image.png", geometry: "500x700"}
+// {width: 500, height: 700, type: "png", src: "public/image.png", geometry: "500x700"}
 
 ```

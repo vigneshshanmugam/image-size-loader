@@ -18,7 +18,7 @@ module.exports = function(content) {
 	
 	var publicPath = "";
 	if(this.options.output.publicPath) publicPath = this.options.output.publicPath;
-	dimensions.url = publicPath + url;
+	dimensions.src = publicPath + url;
 	dimensions.geometry = dimensions.width + "x" + dimensions.height;
 
 	this.emitFile(url, content);
