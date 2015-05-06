@@ -1,5 +1,5 @@
 var loaderUtils = require('loader-utils');
-var sizeOf = require('image-size');
+var getDimensions = require('image-size');
 
 module.exports = function(content) {
 	this.cacheable && this.cacheable(true);
@@ -13,17 +13,11 @@ module.exports = function(content) {
 		regExp: query.regExp
 	});
 
-	var result = [];
-
-	sizeOf(this.resourcePath, function(err, size) {
+	getDimensions(this.resourcePath, function(err, dimensions) {
 		if(err) return err;
-
-		result.push('exports.src = __webpack_public_path__ + ' + JSON.stringify(url) + ';');
-		result.push('exports.width = ' + JSON.stringify(size.width) + ';');
-		result.push('exports.height = ' + JSON.stringify(size.height) + ';');
-
+		
 		this.emitFile(url, content);
-		return result;
+		return "module.exports = " + JSON.stringify(dimensions);
 	});
 };
 

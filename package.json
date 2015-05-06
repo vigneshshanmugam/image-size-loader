@@ -1,5 +1,5 @@
 {
-  "name": "image-size-loader",
+  "name": "image-dimension-loader",
   "version": "0.0.1",
   "description": "Loader that returns extra information for images",
   "main": "index.js",
