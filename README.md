@@ -8,7 +8,7 @@ Webpack image loader with some extra informations on the image.
 ``` javascript
 var dimensions = require("image-size!./file.png");
 // => emits file.png as file in the output directory and returns the public url
-// => returns i. e. "/public-path/0dcbbaa701328a3c262cfd45869e351f.png"
+// => returns i. e. "/public-path/file.png"
 ```
 
 ## Template placeholders
@@ -25,9 +25,30 @@ var dimensions = require("image-size!./file.png");
 
 ## Examples
 
-``` javascript
-var result = require("./image.png");
-// {width: 500, height: 700, type: "png", url: "public/HomePage.png", geometry: "500x700"}
+#### webpack.config.js
 
+```js
+// webpack.config.js
+module.exports = {
+    output: {
+        publicPath: 'public/'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.(gif|jpeg|png)/,
+                loader: 'image-dimension-loader'
+            }
+        ]
+    }
+};
 ```
 
+
+#### example_module.js
+
+``` javascript
+var result = require("./image.png");
+// {width: 500, height: 700, type: "png", url: "public/image.png", geometry: "500x700"}
+
+```
