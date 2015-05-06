@@ -15,7 +15,7 @@ module.exports = function(content) {
 	});
 
 	dimensions = getDimensions(this.resourcePath);
-	
+
 	var publicPath = "";
 	if(this.options.output.publicPath) publicPath = this.options.output.publicPath;
 	dimensions.src = publicPath + url;
