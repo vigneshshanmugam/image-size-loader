@@ -1,4 +1,4 @@
-# image-size-loader
+# imagesize-loader
 
 A webpack image loader with extra size info for image.
 
