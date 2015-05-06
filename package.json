@@ -1,6 +1,6 @@
 {
   "name": "image-dimension-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Loader that returns extra information for images",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "keywords": [
     "image-size-loader",
+    "image-dimension-loader",
     "loader"
   ],
   "author": "Vignesh Shanmugam",
