@@ -38,10 +38,18 @@ https://github.com/webpack/docs/wiki/configuration#outputpublicpath
 #### name
 
 ```js
-var image = require('imagesize!./file.png?name=[hash].[ext]');
+var image = require('imagesize?name=[hash].[ext]!./file.png');
 ```
 
 **Note**: This overrides the config `output.imageFilename`.
+
+#### json
+
+```js
+var image = require('json!imagesize?json!./file.png');
+```
+
+Use this incase you'd want to add more properties to the output json.
 
 ### Filename placeholders
 
