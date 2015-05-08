@@ -34,7 +34,13 @@ module.exports = function(content) {
 	image.bytes = fs.statSync(this.resourcePath).size;
 
 	this.emitFile(url, content);
-	return 'module.exports = ' + JSON.stringify(image);
+
+	var output = JSON.stringify(image);
+
+	if (query.json) {
+		return output;
+	}
+	return 'module.exports = ' + output;
 };
 
 module.exports.raw = true;
