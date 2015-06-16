@@ -37,6 +37,10 @@ module.exports = function(content) {
 
 	var output = JSON.stringify(image);
 
+	if (!query.inJS) {
+		return 'module.exports = ' + JSON.stringify(image.src);
+	}
+
 	if (query.json) {
 		return output;
 	}
