@@ -2,6 +2,8 @@
 
 A webpack image loader with extra size info for image.
 
+This repo has migrated [here](https://github.com/boopathi/image-size-loader) with enhancements. 
+
 ## Usage
 
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
